@@ -1,0 +1,31 @@
+/* IndiaDistrictDrilldown.css */
+
+.container {
+  display: flex;              /* Flex container for two panels */  
+  height: 100vh;              /* Fill viewport height */  
+  width: 100%;  
+}
+
+.main-map {
+  flex: 1;                         
+  padding: 8px;  
+  box-sizing: border-box;  
+}
+
+.sidebar {
+  flex: 1;                         
+  padding: 8px;  
+  box-sizing: border-box;  
+  border-left: 1px solid #ccc;  
+  background-color: #fafafa;  
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;   /* Stack vertically on small screens */  
+  }
+  .sidebar {
+    border-left: none;  
+    border-top: 1px solid #ccc;  
+  }
+}

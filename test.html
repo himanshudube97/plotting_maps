@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Page</h1>
+        <p>If you can see this, the basic HTML and CSS are working.</p>
+        
+        <button onclick="testJavaScript()">Test JavaScript</button>
+        <button onclick="testFetch()">Test Fetch</button>
+        
+        <div id="output" style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+            <p>Output will appear here...</p>
+        </div>
+    </div>
+
+    <script>
+        function testJavaScript() {
+            document.getElementById('output').innerHTML = `
+                <h3>✅ JavaScript is working!</h3>
+                <p>Current time: ${new Date().toLocaleString()}</p>
+                <p>User agent: ${navigator.userAgent}</p>
+            `;
+        }
+
+        async function testFetch() {
+            try {
+                const response = await fetch('/india.geojson');
+                const data = await response.json();
+                document.getElementById('output').innerHTML = `
+                    <h3>✅ Fetch is working!</h3>
+                    <p>GeoJSON loaded successfully</p>
+                    <p>Features count: ${data.features ? data.features.length : 'N/A'}</p>
+                `;
+            } catch (error) {
+                document.getElementById('output').innerHTML = `
+                    <h3>❌ Fetch failed</h3>
+                    <p>Error: ${error.message}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html> 
