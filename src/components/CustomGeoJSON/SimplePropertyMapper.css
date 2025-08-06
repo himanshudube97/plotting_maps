@@ -1,0 +1,272 @@
+.simple-property-mapper {
+  margin: 24px 0;
+}
+
+.mapper-header h3 {
+  margin: 0 0 8px 0;
+  color: #2d3748;
+  font-size: 18px;
+}
+
+.mapper-header p {
+  margin: 0 0 20px 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.validation-errors {
+  padding: 12px;
+  border-radius: 6px;
+  background: #fed7d7;
+  border: 1px solid #feb2b2;
+  margin-bottom: 20px;
+}
+
+.validation-error {
+  color: #c53030;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.mapping-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.mapping-field {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  background: white;
+}
+
+.mapping-field.required {
+  border-left: 4px solid #e53e3e;
+}
+
+.mapping-field.optional {
+  border-left: 4px solid #4299e1;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.label-text {
+  display: block;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.required-star {
+  color: #e53e3e;
+}
+
+.field-description {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.field-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.2s;
+}
+
+.field-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.field-select.empty {
+  color: #a0aec0;
+}
+
+.field-preview {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.preview-label {
+  font-size: 12px;
+  color: #4a5568;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.sample-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sample-value {
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #2d3748;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.data-summary {
+  margin-bottom: 32px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 8px;
+  border: 1px solid #bae6fd;
+}
+
+.data-summary h4 {
+  margin: 0 0 16px 0;
+  color: #0369a1;
+  font-size: 16px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-label {
+  font-size: 12px;
+  color: #0369a1;
+  font-weight: 500;
+}
+
+.summary-value {
+  font-size: 14px;
+  color: #1e40af;
+  font-weight: 600;
+  background: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #bae6fd;
+}
+
+.available-fields {
+  padding: 20px;
+  background: #f7fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.available-fields h4 {
+  margin: 0 0 16px 0;
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.fields-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px;
+}
+
+.field-item {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.field-item:hover {
+  border-color: #cbd5e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.field-name {
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.field-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-type {
+  font-size: 11px;
+  color: #4a5568;
+  background: #edf2f7;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.field-completeness {
+  font-size: 11px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.no-properties {
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+  background: #f7fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.no-properties p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .fields-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sample-values {
+    flex-direction: column;
+  }
+  
+  .sample-value {
+    max-width: none;
+  }
+  
+  .field-meta {
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+}

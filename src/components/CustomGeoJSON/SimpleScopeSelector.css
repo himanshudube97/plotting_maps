@@ -1,0 +1,261 @@
+.simple-scope-selector {
+  margin: 24px 0;
+}
+
+.selector-header h3 {
+  margin: 0 0 8px 0;
+  color: #2d3748;
+  font-size: 18px;
+}
+
+.selector-header p {
+  margin: 0 0 24px 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.validation-errors {
+  padding: 12px;
+  border-radius: 6px;
+  background: #fed7d7;
+  border: 1px solid #feb2b2;
+  margin-bottom: 20px;
+}
+
+.validation-error {
+  color: #c53030;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.upload-type-selection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.type-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  text-align: center;
+}
+
+.type-card:hover {
+  border-color: #cbd5e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.type-card.selected {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.type-card h4 {
+  margin: 0 0 8px 0;
+  color: #2d3748;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.type-card p {
+  margin: 0 0 16px 0;
+  color: #4a5568;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card-examples {
+  text-align: left;
+  background: #f7fafc;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.card-examples span {
+  font-size: 12px;
+  color: #4a5568;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.card-examples ul {
+  margin: 0;
+  padding-left: 16px;
+  list-style-type: disc;
+}
+
+.card-examples li {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.configuration-section {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+  background: white;
+  margin-bottom: 24px;
+}
+
+.configuration-section h4 {
+  margin: 0 0 20px 0;
+  color: #2d3748;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 8px;
+}
+
+.config-field {
+  margin-bottom: 20px;
+}
+
+.config-label {
+  display: block;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.required-star {
+  color: #e53e3e;
+}
+
+.config-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  transition: all 0.2s;
+}
+
+.config-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.field-help {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.replace-config,
+.local-config {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f7fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.config-preview {
+  padding: 20px;
+  background: linear-gradient(135deg, #f0fff4 0%, #ecfdf5 100%);
+  border-radius: 8px;
+  border: 1px solid #9ae6b4;
+}
+
+.config-preview h4 {
+  margin: 0 0 12px 0;
+  color: #276749;
+  font-size: 14px;
+}
+
+.preview-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.preview-item {
+  font-size: 13px;
+  color: #2d3748;
+}
+
+.preview-item strong {
+  color: #276749;
+  font-weight: 600;
+}
+
+/* Animation for card selection */
+@keyframes selectPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+.type-card.selected {
+  animation: selectPulse 0.3s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .upload-type-selection {
+    grid-template-columns: 1fr;
+  }
+  
+  .type-card {
+    padding: 20px;
+  }
+  
+  .card-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+  
+  .type-card h4 {
+    font-size: 15px;
+  }
+  
+  .type-card p {
+    font-size: 13px;
+  }
+  
+  .configuration-section {
+    padding: 16px;
+  }
+  
+  .config-preview {
+    padding: 16px;
+  }
+}
+
+/* Focus states for accessibility */
+.type-card:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.config-select:focus {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Loading state */
+.config-select:disabled {
+  background: #f7fafc;
+  color: #a0aec0;
+  cursor: not-allowed;
+}

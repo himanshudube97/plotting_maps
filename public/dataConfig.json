@@ -1,0 +1,75 @@
+{
+  "world": [
+    { "name": "India", "value": 1 },
+    { "name": "Kenya", "value": 1 }
+  ],
+  "india": {
+    "states": [
+      { "name": "Maharashtra", "value": 24 },
+      { "name": "Karnataka", "value": 18 },
+      { "name": "Tamil Nadu", "value": 20 },
+      { "name": "Gujarat", "value": 15 },
+      { "name": "West Bengal", "value": 22 },
+      { "name": "Uttar Pradesh", "value": 28 },
+      { "name": "Rajasthan", "value": 16 },
+      { "name": "Madhya Pradesh", "value": 19 },
+      { "name": "Andhra Pradesh", "value": 17 },
+      { "name": "Kerala", "value": 21 }
+    ],
+    "districts": {
+      "dataGeneration": {
+        "enabled": true,
+        "minValue": 10000,
+        "maxValue": 110000,
+        "description": "Dynamic generation of district data based on GeoJSON features"
+      }
+    },
+    "pune": {
+      "wards": [
+        { "name": "01 Dhanori - Vishrantwadi", "value": 15000 },
+        { "name": "02 Tingrenagar - Sanjay Park", "value": 12000 },
+        { "name": "03 Lohegaon - Vimannagar", "value": 18000 },
+        { "name": "04 East Kharadi - Wagholi", "value": 20000 },
+        { "name": "05 West Kharadi - Vadgaon Sheri", "value": 16000 },
+        { "name": "06 Vadgaon Sheri - Ramwadi", "value": 14000 },
+        { "name": "07 Kalyaninagar - Nagpur Chawl", "value": 13000 },
+        { "name": "08 Kalas - Phulenagar", "value": 11000 },
+        { "name": "09 Yerwada", "value": 17000 },
+        { "name": "10 Shivajinagar Gaothan - Sangamwadi", "value": 19000 },
+        { "name": "44 Kale Boratenagar - Sasanenagar", "value": 8000 }
+      ]
+    }
+  },
+  "kenya": {
+    "counties": [
+      { "name": "NAIROBI", "value": 45 },
+      { "name": "MOMBASA", "value": 32 },
+      { "name": "KIAMBU", "value": 28 },
+      { "name": "NAKURU", "value": 35 },
+      { "name": "MACHAKOS", "value": 25 },
+      { "name": "KAKAMEGA", "value": 30 },
+      { "name": "MERU", "value": 22 },
+      { "name": "KISUMU", "value": 27 },
+      { "name": "UASIN GISHU", "value": 24 },
+      { "name": "KILIFI", "value": 20 },
+      { "name": "KITUI", "value": 20 },
+      { "name": "TURKANA", "value": 50 }
+    ],
+    "constituencies": {
+      "dataGeneration": {
+        "enabled": true,
+        "minValue": 15000,
+        "maxValue": 85000,
+        "description": "Dynamic generation of constituency data based on GeoJSON features"
+      }
+    },
+    "wards": {
+      "dataGeneration": {
+        "enabled": true,
+        "minValue": 5000,
+        "maxValue": 55000,
+        "description": "Dynamic generation of ward data based on GeoJSON features"
+      }
+    }
+  }
+}

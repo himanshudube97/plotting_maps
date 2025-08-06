@@ -1,18 +1,18 @@
-# 🇮🇳 Interactive India Map - React Edition
+# 🌍 Interactive Geographic Map - React Edition
 
-A modern, interactive map of India built with React, ECharts, and GeoJSON data. This application provides a beautiful and responsive interface for exploring India's states and territories with drill-down capabilities.
+A modern, interactive mapping application built with React, ECharts, and GeoJSON data. This application provides a beautiful and responsive interface for exploring multiple countries with configurable drill-down capabilities.
 
 ## ✨ Features
 
-- **Interactive Map**: Click on any state to view detailed information
-- **Multiple Data Types**: Visualize population, GDP, literacy rate, area, and population density
-- **Color Schemes**: Choose from 5 different color palettes (Viridis, Plasma, Inferno, Magma, Cividis)
-- **Zoom Controls**: Adjust zoom level with slider or mouse wheel
-- **File Upload**: Upload custom shapefiles (.shp, .dbf, .shx) for custom data
+- **Interactive Map**: Click on any region to view detailed information
+- **Multi-Level Drill-Down**: Navigate from world → countries → states/counties → districts/constituencies → wards
+- **Configurable Hierarchy**: Customize drill-down levels through the settings page
+- **Multiple Countries**: Support for India (State → District → Ward) and Kenya (County → Constituency → Ward)
+- **Settings Panel**: Configure which hierarchy levels are enabled for each country
 - **Responsive Design**: Works perfectly on desktop and mobile devices
-- **State Information Panel**: Real-time display of selected state details
-- **Breadcrumb Navigation**: Navigate between different map levels
+- **Real-time Navigation**: Dynamic breadcrumb navigation between map levels
 - **Modern UI**: Beautiful gradient backgrounds and smooth animations
+- **Data Visualization**: Interactive tooltips and visual mapping with dummy data
 
 ## 🚀 Quick Start
 
@@ -43,47 +43,57 @@ A modern, interactive map of India built with React, ECharts, and GeoJSON data. 
 ## 🎮 How to Use
 
 ### Basic Navigation
-- **Click** on any state to view its information
-- **Scroll** to zoom in/out
+- **Click** on any region to drill down to the next level
+- **Use back buttons** to navigate up the hierarchy
+- **Scroll** to zoom in/out on any map
 - **Drag** to pan around the map
-- **Use the zoom slider** to adjust zoom level
 
-### Controls Panel
-- **Upload Shapefile**: Upload your own .shp, .dbf, and .shx files
-- **Data Type**: Choose what data to visualize (Population, GDP, Literacy, Area, Density)
-- **Color Scheme**: Select from different color palettes
-- **Zoom Level**: Adjust the map zoom with the slider
-- **Load Default**: Load the default India map
-- **Reset View**: Reset to the default view
+### Settings Configuration
+- **Settings Button**: Click the ⚙️ Settings button on the world map
+- **Hierarchy Configuration**: Enable/disable levels for each country
+  - **India**: Toggle State → District → Ward levels
+  - **Kenya**: Toggle County → Constituency → Ward levels
+- **Real-time Preview**: See your hierarchy changes in the preview panel
+- **Save Settings**: Apply changes to immediately affect navigation
+
+### Navigation Examples
+- **Full India Hierarchy**: World → India → State → District → Ward
+- **Simplified India**: World → India → State → Ward (skip districts)
+- **Full Kenya Hierarchy**: World → Kenya → County → Constituency → Ward
+- **Direct Kenya**: World → Kenya → County → Ward (skip constituencies)
 
 ### Data Visualization
-The application generates realistic dummy data for demonstration:
-- **Population**: 1M - 50M people
-- **GDP**: ₹1B - ₹50B
-- **Literacy Rate**: 60% - 95%
-- **Area**: 1,000 - 50,000 km²
-- **Population Density**: 50 - 2,000 people/km²
+The application handles data for the chloropleth demonstration across all geographic levels:
+- **Visual Tooltips**: Hover over any region to see data
+- **Color Mapping**: Regions are colored based on data values
+- **Interactive Elements**: Click regions only when drill-down is enabled
+- **Dynamic Titles**: Map titles reflect current navigation capabilities
 
 ## 📁 Project Structure
 
 ```
-geomap/
+plotting_maps/
 ├── src/
-│   ├── components/
-│   │   ├── Map.jsx           # Main map component with ECharts
-│   │   ├── Controls.jsx      # File upload and configuration controls
-│   │   ├── Breadcrumb.jsx    # Navigation breadcrumbs
-│   │   └── InfoPanel.jsx     # Region information display
-│   ├── utils/
-│   │   └── dataUtils.js      # Data processing utilities
-│   ├── App.jsx               # Main application component
-│   ├── main.jsx              # React entry point
-│   ├── index.css             # Global styles
-│   └── india.geojson         # India GeoJSON data
+│   ├── App.jsx               # Main application component with navigation logic
+│   ├── Settings.jsx          # Settings modal for hierarchy configuration
+│   ├── Settings.css          # Styling for settings modal
+│   ├── dataLoader.js         # Data loading and processing utilities
+│   ├── IndiaDistrictDrilldown.css # Legacy styling
+│   └── main.jsx              # React entry point
+├── public/
+│   ├── countries.geo.json    # World countries GeoJSON
+│   ├── india.geojson         # India states GeoJSON
+│   ├── india_districts.geojson # India districts GeoJSON
+│   ├── kenya_counties.json   # Kenya counties GeoJSON
+│   ├── kenya_constituencies.json # Kenya constituencies GeoJSON
+│   ├── kenya_wards.json      # Kenya wards GeoJSON
+│   ├── pune-electoral-wards_2022.geojson # Pune wards GeoJSON
+│   └── dataConfig.json       # Data configuration
 ├── index.html                # HTML template
 ├── package.json              # Dependencies and scripts
 ├── vite.config.js            # Vite configuration
-└── README.md                 # This file
+├── README.md                 # This file
+└── CLAUDE.md                 # Development context
 ```
 
 ## 🛠️ Technical Details
@@ -92,28 +102,33 @@ geomap/
 - **React 18**: Modern React with hooks and functional components
 - **ECharts 5.4.3**: Powerful charting library for map visualization
 - **Vite**: Fast build tool and development server
-- **Shapefile.js**: Shapefile to GeoJSON conversion
 - **D3-geo & D3-array**: Geographic and data processing utilities
 
 ### Key Features Implementation
 
+#### Hierarchical Navigation
+- Dynamic view state management for multi-level drill-down
+- Configurable hierarchy settings stored in React state
+- Conditional navigation based on enabled levels
+- Real-time updates when settings change
+
+#### Settings System
+- Modal-based settings interface with beautiful UI
+- Toggle switches for each hierarchy level
+- Real-time preview of enabled navigation paths
+- Persistent configuration during session
+
 #### Map Rendering
 - Uses ECharts `registerMap()` API to register GeoJSON data
-- Implements choropleth visualization with custom color scales
-- Handles click events for region selection
-- Supports zoom, pan, and hover interactions
+- Implements choropleth visualization with color mapping
+- Conditional click handlers based on hierarchy settings
+- Dynamic filtering of geographic features by parent regions
 
 #### Data Processing
-- Converts shapefiles to GeoJSON format
-- Generates realistic dummy data for visualization
-- Validates GeoJSON structure
-- Formats values for display (e.g., "1.5M" for population)
-
-#### File Upload
-- Supports multiple file upload (.shp, .dbf, .shx)
-- Groups files by base name
-- Validates complete shapefile sets
-- Converts to GeoJSON for visualization
+- Generates realistic dummy data for all geographic levels
+- Loads data configuration from JSON files
+- Processes GeoJSON features with property mapping
+- Supports filtering by state, county, and constituency
 
 ## 🎨 Customization
 
